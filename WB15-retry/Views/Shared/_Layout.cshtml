@@ -1,0 +1,17 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" type="text/css" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body>
+    <a asp-area="" asp-controller="ChatLogs" asp-action="Index">ChatLogs</a>
+    <p>レイアウト表示できてるよー</p>
+    <div>
+        @RenderBody()
+    </div>
+    <script type="text/javascript" src="~/js/site.js" asp-append-version="true"></script>
+</body>
+</html>
