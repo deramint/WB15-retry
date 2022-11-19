@@ -1,4 +1,7 @@
-﻿namespace WB15_retry.Models
+﻿using Microsoft.Data.SqlClient;
+using System.Collections.Generic;
+
+namespace WB15_retry.Models
 {
     public class ChatLog
     {
@@ -7,59 +10,41 @@
         public string Message { get; set; }
         public string UserId { get; set; }
 
-    }
 
-    /*
-    public class ChatLogService: IChatLogService
-    {
-        private IChatLogRepository _repository;
-        public ChatLogService():this(new ChatLogRepositry()) { }
-
-        public ChatLogService(IChatLogRepository repositry)
+        public static List<ChatLog> DbConnect()
         {
-            _repository = repositry;
-        }
+            List<ChatLog> list = new List<ChatLog>();
 
-        public List<ChatLog> GetChatLogs()
-        {
-            var model = new List<ChatLog>();
-            var data = _repository.GetChatLogs();
+            var path = WebApplication.CreateBuilder().Configuration.GetConnectionString("DefaultConnection");
 
-            foreach(var item in data)
+            string queryString = "SELECT Id, PostAt, Message, UserId FROM dbo.ChatLogs;";
+
+            using (SqlConnection connection = new SqlConnection(path))
             {
-                var log = new ChatLog();
-                log.Id = item.Id;
-                log.PostAt = item.PostAt;
-                log.Message = item.Message;
-                log.UserId = item.UserId;
-                model.Add(log);
+                SqlCommand command = new SqlCommand(queryString, connection);
+                connection.Open();
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                // Call Read before accessing data.
+                while (reader.Read())
+                {
+                    ChatLog chatLog = new ChatLog()
+                    {
+                        Id = (int)reader[0],
+                        PostAt = (DateTime)reader[1],
+                        Message = (string)reader[2],
+                        UserId = (string)reader[3]
+                    };
+                    list.Add(chatLog);
+
+                }
+                // Call Close when done reading.
+                reader.Close();
             }
-            return model;
+
+
+            return list;
         }
     }
-
-    public interface IChatLogService
-    {
-        List<ChatLog> GetChatLogs();
-    }
-
-    public class ChatLogRepositry: IChatLogRepository
-    {
-        DevEntities dbcontext = new DevEntities();
-
-        public List<ChatLog> GetChatLogs()
-        {
-            var query = from x in dbcontext.ChatLogs
-                        orderby x.Id
-                        select x;
-
-            return query.ToList();
-        }
-    }
-
-    public interface IChatLogRepository
-    {
-        List<ChatLog> GetChatLogs();
-    }
-    */
 }
