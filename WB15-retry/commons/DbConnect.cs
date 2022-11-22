@@ -3,9 +3,10 @@ using WB15_retry.Models;
 
 namespace WB15_retry.common
 {
+
     public class DbConnect
     {
-        public static List<ChatLog> IndexConnect(string queryString)
+        public static List<ChatLog> DbOperation(string queryString)
         {
             List<ChatLog> list = new List<ChatLog>();
 
@@ -35,6 +36,5 @@ namespace WB15_retry.common
             }
             return list;
         }
-
     }
 }
