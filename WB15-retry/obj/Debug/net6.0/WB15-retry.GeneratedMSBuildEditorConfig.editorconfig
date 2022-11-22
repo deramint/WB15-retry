@@ -15,6 +15,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\ia\Source\Repos\WB15-retry\WB15-retry
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/ia/Source/Repos/WB15-retry/WB15-retry/Views/ChatLogs/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hhdExvZ3NcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/ia/Source/Repos/WB15-retry/WB15-retry/Views/ChatLogs/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hhdExvZ3NcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
