@@ -3,13 +3,14 @@ using WB15_retry.Models;
 
 namespace WB15_retry.common
 {
-
+    //自作のDB接続クラス
     public class DbConnect
     {
         public static List<ChatLog> DbOperation(string queryString)
         {
             List<ChatLog> list = new List<ChatLog>();
 
+            //appsetting/jsonの接続文字列を持ってくる
             var path = WebApplication.CreateBuilder().Configuration.GetConnectionString("DefaultConnection");
 
             using (SqlConnection connection = new SqlConnection(path))
@@ -17,9 +18,10 @@ namespace WB15_retry.common
                 SqlCommand command = new SqlCommand(queryString, connection);
                 connection.Open();
 
+                //クエリ実行
                 SqlDataReader reader = command.ExecuteReader();
 
-                // Call Read before accessing data.
+                // セレクトならreaderに結果が入っているので、モデルインスタンスに代入しリストへ追加
                 while (reader.Read())
                 {
                     ChatLog chatLog = new ChatLog()
@@ -31,9 +33,9 @@ namespace WB15_retry.common
                     };
                     list.Add(chatLog);
                 }
-                // Call Close when done reading.
                 reader.Close();
             }
+            //リスト返却
             return list;
         }
     }

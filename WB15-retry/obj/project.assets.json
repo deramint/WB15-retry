@@ -10438,19 +10438,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ia\\.nuget\\packages\\": {}
+    "C:\\Users\\mw090\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ia\\Source\\Repos\\WB15-retry\\WB15-retry\\WB15-retry.csproj",
+      "projectUniqueName": "C:\\Users\\mw090\\source\\repos\\WB15-retry\\WB15-retry\\WB15-retry.csproj",
       "projectName": "WB15-retry",
-      "projectPath": "C:\\Users\\ia\\Source\\Repos\\WB15-retry\\WB15-retry\\WB15-retry.csproj",
-      "packagesPath": "C:\\Users\\ia\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ia\\Source\\Repos\\WB15-retry\\WB15-retry\\obj\\",
+      "projectPath": "C:\\Users\\mw090\\source\\repos\\WB15-retry\\WB15-retry\\WB15-retry.csproj",
+      "packagesPath": "C:\\Users\\mw090\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\mw090\\source\\repos\\WB15-retry\\WB15-retry\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\ia\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\mw090\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -10458,6 +10463,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -10524,7 +10530,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -1,7 +1,4 @@
-﻿using Microsoft.Data.SqlClient;
-using System.Collections.Generic;
-
-namespace WB15_retry.Models
+﻿namespace WB15_retry.Models
 {
     public class ChatLog
     {
