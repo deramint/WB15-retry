@@ -2,27 +2,26 @@
 {
     /*
     このWEBアプリはWB15~19の内容を一部割愛しながら作成したものです。
-    WB-20以降は時間に余裕があればやろうと思います。
+    WB-20以降は時間に余裕があれば行おうと思います。
 
-    今回のWEBアプリの主な目的は手動でDBと接続しクエリを実行することにあります。
+    ・目的
+    手動でDBと接続しクエリを実行すること。
     よって、ChatLogsの主な機能はDB参照と新規追加のみです。
 
-
-    IAで頂いた参考書との主な相違点。
-    ・自動生成はコントローラー名からViewを作成する際のみ
-    ・DB接続は手動、使うナゲットパッケージは「SQL Data Client」
-    ・CSS、JSをwwwrootフォルダ内にお試し記載
-    
-
-    メインとなる手動でのDB接続の方法（正しい使い方かは分かりません。）
+    ・流れ
     ０，SQLサーバーにテーブルを作成（クエリはWB-18にあり。）
     １，appsetting.jsonにDBへのパスを記載
     ２，ChatLogsControllerにてクエリを作成し、commons/Dbconnect.cs内のDbOperationへ引数として渡す。←自作フォルダ＆ファイル
     ３，Microsoft.Data.SqlClient;を使用しDBへ接続＆クエリ実行
 
 
+    ・IAで頂いた参考書との主な相違点。
+    １，自動生成はコントローラー/アクションメソッド名からViewを生成する際のみ
+    ２，DB接続は手動、使うナゲットパッケージは「Microsoft.Data.SqlClient」
+    ３，CSS、JSをwwwrootフォルダ内にお試し記載
 
-    以下、WB-18のDB作成クエリを一応載せておきます。
+
+    以下、WB-18のDB作成クエリを載せておきます。
 USE [ChatApp]
  
 CREATE TABLE [dbo].[ChatLogs](
@@ -76,7 +75,7 @@ GO
             app.UseAuthorization();
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=Chat}/{action=Index}/{id?}");
+                pattern: "{controller=ChatLogs}/{action=Index}/{id?}");
             //ここまで
 
             app.Run();

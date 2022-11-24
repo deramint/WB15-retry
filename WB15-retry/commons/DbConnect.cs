@@ -21,7 +21,7 @@ namespace WB15_retry.common
                 //クエリ実行
                 SqlDataReader reader = command.ExecuteReader();
 
-                // セレクトならreaderに結果が入っているので、モデルインスタンスに代入しリストへ追加
+                // セレクト文ならreaderに結果が入っているので、モデルインスタンスに代入しリストへ追加
                 while (reader.Read())
                 {
                     ChatLog chatLog = new ChatLog()
