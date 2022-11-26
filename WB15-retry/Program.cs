@@ -11,7 +11,7 @@
     ・流れ
     ０，SQLサーバーにテーブルを作成（クエリはWB-18にあり。）
     １，appsetting.jsonにDBへのパスを記載
-    ２，ChatLogsControllerにてクエリを作成し、commons/Dbconnect.cs内のDbOperationへ引数として渡す。←自作フォルダ＆ファイル
+    ２，ChatLogsControllerにてクエリを作成し、Commons/Dbcontext.cs内のReturnChatLogListやQueryExcuteへ引数として渡す。
     ３，Microsoft.Data.SqlClient;を使用しDBへ接続＆クエリ実行
 
 

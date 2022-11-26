@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Policy;
-using WB15_retry.common;
+using WB15_retry.Common;
 using WB15_retry.Models;
 
 namespace WB15_retry.controllers
@@ -9,14 +9,10 @@ namespace WB15_retry.controllers
     public class ChatLogsController : Controller
     {
 
-
+        //ChatLog型のリストが帰ってくるのでそれをViewへ渡す。
         public IActionResult Index()
         {
-            //実行したいクエリを記載
-            var queryString = "SELECT Id, PostAt, Message, UserId FROM dbo.ChatLogs;";
-
-            //ChatLog型のリストが帰ってくるのでそれをViewへ渡す。
-            return View(DbContext.ReturnChatLogList(queryString));
+            return View(DbContext.ReturnChatLogList());
         }
 
         public IActionResult Create()
