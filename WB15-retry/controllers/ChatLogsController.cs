@@ -13,10 +13,10 @@ namespace WB15_retry.controllers
         public IActionResult Index()
         {
             //実行したいクエリを記載
-            string queryString = "SELECT Id, PostAt, Message, UserId FROM dbo.ChatLogs;";
+            var queryString = "SELECT Id, PostAt, Message, UserId FROM dbo.ChatLogs;";
 
             //ChatLog型のリストが帰ってくるのでそれをViewへ渡す。
-            return View(DbConnect.DbOperation(queryString));
+            return View(DbContext.ReturnChatLogList(queryString));
         }
 
         public IActionResult Create()
@@ -33,8 +33,8 @@ namespace WB15_retry.controllers
                 //現在時刻を代入
                 chatLog.PostAt = DateTime.Now;
                 //インサート文を作成し実行
-                string queryString = "insert into dbo.ChatLogs(PostAt, Message, UserId)values('" + chatLog.PostAt as String + "','" + chatLog.Message + "','" + chatLog.UserId + "');";
-                DbConnect.DbOperation(queryString);
+                var queryString = "insert into dbo.ChatLogs(PostAt, Message, UserId)values('" + chatLog.PostAt + "','" + chatLog.Message + "','" + chatLog.UserId + "');";
+                DbContext.QueryExecute(queryString);
             }
             //成功しても失敗してもリダイレクト
             return RedirectToAction(nameof(Index));
