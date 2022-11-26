@@ -22,6 +22,8 @@ namespace WB15_retry.common
             }
         }
 
+        //ChatLogリストが戻り値のメソッド
+        //上記の「QueryExecute」を取り込みたいが、うまい方法が思い浮かばないのでひとまず保留します。
         public static List<ChatLog> ReturnChatLogList(string queryString)
         {
             List<ChatLog> list = new List<ChatLog>();
